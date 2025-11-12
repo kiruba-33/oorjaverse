@@ -23,22 +23,22 @@ const portfolioItems = [
   {
     title: "Product Market Analysis",
     icon: <FaChartBar className="text-4xl text-red-500" />,
-    img: "/portfolioimages/portimg1.jpg",
+    img: "/portfolIoimages/portimg1.jpg",
   },
   {
     title: "Business Strategy Planning",
     icon: <FaBullseye className="text-4xl text-red-500" />,
-    img: "/portfolioimages/portimg2.jpg",
+    img: "/portfolIoimages/portimg2.jpg",
   },
   {
     title: "Team Leadership Project",
     icon: <FaUserTie className="text-4xl text-red-500" />,
-    img: "/portfolioimages/portimg3.jpg",
+    img: "/portfolIoimages/portimg3.jpg",
   },
   {
     title: "Client Relationship Growth",
     icon: <FaHandshake className="text-4xl text-red-500" />,
-    img: "/portfolioimages/portimg4.jpg",
+    img: "/portfolIoimages/portimg4.jpg",
   },
 ];
 
