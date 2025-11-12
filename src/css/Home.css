@@ -1,0 +1,451 @@
+/* Fix for navbar overlap */
+.home-section {
+  width: 100%;
+  height: calc(100vh - 100px); /* subtract actual navbar height */
+  margin-top: 100px; /* push below navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image container */
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Make image clearly visible */
+.home-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; /* adjust image position to show faces properly */
+  filter: brightness(85%);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Overlay text */
+.home-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.home-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.home-overlay p {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Animated button */
+.work-button {
+  background: linear-gradient(135deg, #ff3d00, #ff6a00);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(255, 100, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.work-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+
+
+.social-icon {
+  background: white;
+  padding: 12px;
+  border-radius: 999px;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+.social-icon:hover {
+  transform: scale(1.2) rotate(-5deg);
+  background: #ff3b3b;
+  color: white;
+}
+
+#teamSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+
+
+/* HOW IT WORKS Background Floating Glow */
+.howitworks-bg {
+  background: #0e1624;
+  position: relative;
+  overflow: hidden;
+}
+
+.howitworks-bg::before,
+.howitworks-bg::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.45;
+}
+
+.howitworks-bg::before {
+  background: #ff4d4d;
+  top: -120px;
+  left: -120px;
+  animation: float_1 8s infinite alternate ease-in-out;
+}
+
+.howitworks-bg::after {
+  background: #ffc800;
+  bottom: -120px;
+  right: -120px;
+  animation: float_2 9s infinite alternate ease-in-out;
+}
+
+@keyframes float_1 {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(60px); }
+}
+
+@keyframes float_2 {
+  from { transform: translateY(40px); }
+  to { transform: translateY(-40px); }
+}
+
+/* Section BG */
+.core-features-section {
+  background: linear-gradient(135deg, #fff6f6 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card */
+.smooth-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.smooth-card:hover {
+  box-shadow: 0px 12px 35px rgba(255, 60, 60, 0.2);
+}
+
+/* Floating icon animation - lightweight GPU animation */
+.floating-icon {
+  animation: floatSmooth 2.6s ease-in-out infinite alternate;
+}
+
+@keyframes floatSmooth {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-10px); }
+}
+
+/* Appointment Box */
+.appointment-box {
+  background: #111827;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0px 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Form Inputs */
+.form-input {
+  width: 100%;
+  background: #1f2937;
+  border: 1px solid #333;
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-input:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 10px rgba(255,59,59,0.5);
+}
+
+/* Button */
+.appointment-btn {
+  width: 100%;
+  background: #ffb400;
+  padding: 16px;
+  border-radius: 10px;
+  color: #111;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.appointment-btn:hover {
+  background: #ff3b3b;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Progress Bars */
+.progress-bg {
+  width: 100%;
+  background: #eee;
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.progress-bar.red {
+  background: #e63946;
+}
+
+.progress-bar.yellow {
+  background: #f7b500;
+}
+
+/* Mobile Optimization */
+@media (max-width:768px) {
+  .appointment-box {
+    order: 1;
+  }
+}
+
+/* Floating background animation */
+@keyframes bgFloat {
+  0% { background-position: 0px 0px; }
+  50% { background-position: 20px 40px; }
+  100% { background-position: 0px 0px; }
+}
+
+.success-bg {
+  animation: bgFloat 18s ease-in-out infinite;
+  opacity: 0.18;
+}
+
+.glow-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glow-ring::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,0,0,0.4), rgba(255,0,0,0) 70%);
+  animation: glowPulse 2.5s infinite ease-in-out;
+  filter: blur(25px);
+  z-index: 0;
+}
+
+@keyframes glowPulse {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.9; }
+}
+
+.testimonials-section {
+  background-image: url('/src/assets/bg-pattern.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 20px;
+  padding: 60px 30px 40px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+}
+
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.beige-bg {
+  background: #f7e3c3;
+  height: 110px;
+  border-radius: 12px;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+.star-row {
+  color: #ff3b3b;
+  margin-bottom: 10px;
+}
+
+
+/* Red Triangle Wave Shape */
+.clip-triangle-wave {
+  clip-path: polygon(100% 0%, 0% 0%, 75% 100%, 100% 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  transition: all 0.4s ease;
+}
+.glass-card:hover {
+  border-color: rgba(255, 70, 70, 0.6);
+  box-shadow: 0 0 25px rgba(255, 50, 50, 0.4);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+/* Floating animation (already used in core section, we reuse it) */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Smooth Hover Shadow */
+.group:hover {
+  transition: 0.4s;
+  transform: translateY(-6px);
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 50px 25px 35px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+}
+
+.testimonial-img-wrap {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.testimonial-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.paint-bg {
+  background: url("/src/assets/testimonials/beige-bg.png") center/contain no-repeat;
+  width: 100%;
+  height: 120px;
+  margin: -20px 0 15px;
+}
+
+.star-row {
+  color: #e63946;
+  letter-spacing: 3px;
+  font-size: 18px;
+  margin: 8px 0 14px;
+}
+
+/* Swiper Arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #111;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #e63946;
+  transform: scale(1.2);
+}
+
+/* Red Triangle Hero Overlay Shape */
+.clip-triangle {
+  clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+}

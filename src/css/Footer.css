@@ -1,0 +1,24 @@
+.footer-link {
+  transition: 0.4s ease;
+}
+.footer-link:hover {
+  color: #ff455d !important;
+  text-shadow: 0 0 10px #ff455d;
+}
+
+.footer-social {
+  transition: 0.4s ease;
+}
+.footer-social:hover {
+  background: #ff455d !important;
+  box-shadow: 0 0 18px #ff455d;
+  transform: scale(1.18);
+}
+
+.footer-card {
+  transition: 0.4s ease;
+}
+.footer-card:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 0 20px rgba(255, 60, 90, 0.35));
+}

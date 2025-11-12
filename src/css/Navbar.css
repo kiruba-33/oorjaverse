@@ -1,0 +1,20 @@
+/* Navbar underline animation */
+.nav-item {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff3b3b;
+  transform: translateX(-50%);
+  transition: 0.35s ease;
+}
+.nav-item:hover::after {
+  width: 100%;
+}
+
