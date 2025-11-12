@@ -114,7 +114,7 @@ const Navbar = () => {
             </AnimatePresence>
           </li>
 
-          {/* ✅ RESTORED BLOG MENU WITH DROPDOWN */}
+          {/* Blog Dropdown */}
           <li
             onMouseEnter={() => setActiveDropdown("Blog")}
             onMouseLeave={() => setActiveDropdown(null)}
@@ -160,11 +160,17 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* ✅ MOBILE MENU (unchanged except link works) */}
+      {/* ✅ MOBILE MENU with DROPDOWNS */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black z-40" onClick={() => setIsMobileMenuOpen(false)} />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
 
             <motion.div
               initial={{ x: "-100%" }}
@@ -174,20 +180,95 @@ const Navbar = () => {
             >
               <div className="flex justify-between items-center px-5 py-4 border-b border-red-300">
                 <img src={logo} alt="Logo" className="h-12" />
-                <FaTimes className="text-2xl cursor-pointer" onClick={() => setIsMobileMenuOpen(false)} />
+                <FaTimes
+                  className="text-2xl cursor-pointer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                />
               </div>
 
               <ul className="flex flex-col px-5 mt-4 space-y-4 text-lg font-medium">
                 <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
                 <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link></li>
-                <li><Link to="/services" onClick={() => setIsMobileMenuOpen(false)}>Services</Link></li>
-                <li><Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
+
+                {/* MOBILE DROPDOWN - SERVICES */}
+                <li>
+                  <div
+                    className="flex justify-between items-center cursor-pointer"
+                    onClick={() =>
+                      setMobileDropdown(
+                        mobileDropdown === "Services" ? null : "Services"
+                      )
+                    }
+                  >
+                    <span>Services</span>
+                    <FaChevronDown
+                      className={`transition-transform ${
+                        mobileDropdown === "Services" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+                  <AnimatePresence>
+                    {mobileDropdown === "Services" && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="pl-4 mt-2 space-y-2 text-sm"
+                      >
+                        <li><Link to="/services/it-services" onClick={() => setIsMobileMenuOpen(false)}>IT Services</Link></li>
+                        <li><Link to="/services/app-development" onClick={() => setIsMobileMenuOpen(false)}>App Development</Link></li>
+                        <li><Link to="/services/quality-testing" onClick={() => setIsMobileMenuOpen(false)}>Quality Testing</Link></li>
+                        <li><Link to="/services/website-development" onClick={() => setIsMobileMenuOpen(false)}>Website Development</Link></li>
+                        <li><Link to="/services/hosting" onClick={() => setIsMobileMenuOpen(false)}>Hosting</Link></li>
+                        <li><Link to="/services/cloud-server" onClick={() => setIsMobileMenuOpen(false)}>Cloud Server</Link></li>
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </li>
+
+                {/* MOBILE DROPDOWN - BLOG */}
+                <li>
+                  <div
+                    className="flex justify-between items-center cursor-pointer"
+                    onClick={() =>
+                      setMobileDropdown(
+                        mobileDropdown === "Blog" ? null : "Blog"
+                      )
+                    }
+                  >
+                    <span>Blog</span>
+                    <FaChevronDown
+                      className={`transition-transform ${
+                        mobileDropdown === "Blog" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+                  <AnimatePresence>
+                    {mobileDropdown === "Blog" && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="pl-4 mt-2 space-y-2 text-sm"
+                      >
+                        <li><Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>All Blogs</Link></li>
+                        <li><Link to="/blog/tech-news" onClick={() => setIsMobileMenuOpen(false)}>Tech News</Link></li>
+                        <li><Link to="/blog/how-to-guides" onClick={() => setIsMobileMenuOpen(false)}>How-To Guides</Link></li>
+                        <li><Link to="/blog/company-updates" onClick={() => setIsMobileMenuOpen(false)}>Company Updates</Link></li>
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </li>
+
                 <li><Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link></li>
                 <li><Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link></li>
               </ul>
 
               <button
-                onClick={() => { setShowSearch(true); setIsMobileMenuOpen(false); }}
+                onClick={() => {
+                  setShowSearch(true);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="mx-5 mt-auto mb-6 bg-white text-red-600 font-bold py-3 rounded-lg flex items-center justify-center gap-3"
               >
                 <FaSearch /> Search
@@ -200,15 +281,35 @@ const Navbar = () => {
       {/* SEARCH MODAL */}
       <AnimatePresence>
         {showSearch && (
-          <motion.div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[99999]" onClick={() => setShowSearch(false)}>
-            <motion.div onClick={(e) => e.stopPropagation()} className="relative bg-white p-4 max-w-2xl w-[90%] rounded-xl shadow-2xl flex items-center gap-3">
-              <button onClick={() => setShowSearch(false)} className="absolute -top-4 -right-4 bg-white shadow-lg w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:text-red-600">
+          <motion.div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[99999]"
+            onClick={() => setShowSearch(false)}
+          >
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-white p-4 max-w-2xl w-[90%] rounded-xl shadow-2xl flex items-center gap-3"
+            >
+              <button
+                onClick={() => setShowSearch(false)}
+                className="absolute -top-4 -right-4 bg-white shadow-lg w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:text-red-600"
+              >
                 <FaTimes />
               </button>
 
               <FaSearch className="text-gray-500 text-xl" />
-              <input className="flex-1 px-3 py-3 outline-none text-lg" placeholder="Search here..." value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === "Enter" && submitSearch()} />
-              <button onClick={submitSearch} className="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-md">Search</button>
+              <input
+                className="flex-1 px-3 py-3 outline-none text-lg"
+                placeholder="Search here..."
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && submitSearch()}
+              />
+              <button
+                onClick={submitSearch}
+                className="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-md"
+              >
+                Search
+              </button>
             </motion.div>
           </motion.div>
         )}
