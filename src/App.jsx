@@ -6,7 +6,8 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import MouseFollower from "./components/MouseFollower";
 import Contact from "./pages/Contact";
-import LiveChat from "./components/Livechat";
+import LiveChat from "./components/LiveChat";
+
 import About from "./pages/About";
 import Search from "./pages/Search";
 import Footer from "./pages/Footer";
