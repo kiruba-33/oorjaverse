@@ -106,33 +106,32 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* COLUMN 4 — Recent Posts (uses local images + links to /portfolio) */}
+        {/* ✅ COLUMN 4 — Recent Posts (updated to use local images) */}
         <div>
           <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
 
-          {[1, 2].map((i) => {
-            // Local images (ensure files exist under public/portfolioimages/)
-            const src = i === 1 ? "/portfolioimages/portimg1.jpg" : "/portfolioimages/portimg2.jpg";
-            return (
-              <div
-                key={i}
-                onClick={() => goTo("/portfolio")} // ✅ Navigates to portfolio page
-                className="flex items-center gap-4 mb-6 cursor-pointer group sm:flex-row flex-col sm:items-center"
-              >
-                <img
-                  src={src}
-                  className="w-14 h-14 sm:w-14 sm:h-14 rounded-lg object-cover shadow-md group-hover:shadow-[0_0_12px_rgba(255,0,80,0.4)] transition"
-                  alt={`post-${i}`}
-                />
-                <div className="mt-2 sm:mt-0 text-center sm:text-left">
-                  <p className="text-sm text-gray-400">30 October, 2024</p>
-                  <p className="text-gray-200 font-medium group-hover:text-red-500 transition">
-                    Business growth strategy for teams
-                  </p>
-                </div>
+          {[
+            { id: 1, src: "/portfolIoimages/portimg1.jpg" },
+            { id: 2, src: "/portfolIoimages/portimg2.jpg" },
+          ].map((post) => (
+            <div
+              key={post.id}
+              onClick={() => goTo("/portfolio")}
+              className="flex items-center gap-4 mb-6 cursor-pointer group sm:flex-row flex-col sm:items-center"
+            >
+              <img
+                src={post.src}
+                className="w-14 h-14 sm:w-14 sm:h-14 rounded-lg object-cover shadow-md group-hover:shadow-[0_0_12px_rgba(255,0,80,0.4)] transition"
+                alt={`post-${post.id}`}
+              />
+              <div className="mt-2 sm:mt-0 text-center sm:text-left">
+                <p className="text-sm text-gray-400">30 October, 2024</p>
+                <p className="text-gray-200 font-medium group-hover:text-red-500 transition">
+                  Business growth strategy for teams
+                </p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 
