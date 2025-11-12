@@ -265,7 +265,7 @@ export default function ServicesPage() {
             </motion.div>
             <HoverCard3D>
               <motion.div variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative overflow-hidden rounded-[28px] border border-black/10 bg-black/5">
-                <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop" alt="Services hero" className="h-[420px] w-full object-cover" />
+                <img src="ItServicesimages/it1.jpg" alt="Services hero" className="h-[420px] w-full object-cover" />
               </motion.div>
             </HoverCard3D>
           </div>
