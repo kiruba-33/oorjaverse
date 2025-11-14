@@ -213,10 +213,10 @@ function Hero({ bgOpacity }) {
             <p className="text-black/70 max-w-xl">
               We build fast, resilient digital experiences that help ambitious teams scale with confidence.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <MagneticButton icon={Rocket}>Start a Project</MagneticButton>
-              <Button variant="outline">Download Company Profile</Button>
-            </div>
+        <div className="flex flex-wrap items-center gap-3">
+  <Button variant="outline">Download Company Profile</Button>
+</div>
+
             <div className="flex items-center gap-6 pt-3 text-sm text-black/60 flex-wrap">
               <Chip><GaugeCircle className="size-3" /> High Performance</Chip>
               <Chip><ShieldCheck className="size-3" /> Enterprise Security</Chip>
@@ -243,8 +243,6 @@ function Hero({ bgOpacity }) {
 function AtAGlance() {
   const items = [
     { icon: Building2, label: "Registered", value: "Private Limited" },
-    { icon: MapPin, label: "Location", value: "Innov8 Orchid Centre, 3rd Floor, Golf Course Road, Sector 53, Gurgaon" },
-    { icon: Phone, label: "Contact", value: "8178106141" },
     { icon: BadgeCheck, label: "Focus", value: "Web, Apps, Cloud" },
   ];
   return (
@@ -252,7 +250,14 @@ function AtAGlance() {
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it) => (
-            <motion.div key={it.label} variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} className="rounded-3xl border border-black/10 bg-black/5 p-6">
+            <motion.div
+              key={it.label}
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="rounded-3xl border border-black/10 bg-black/5 p-6"
+            >
               <div className="flex items-center gap-3">
                 <it.icon className="size-6" />
                 <div>
@@ -267,6 +272,7 @@ function AtAGlance() {
     </section>
   );
 }
+
 
 // ============================
 // STORY (short timeline)
@@ -566,11 +572,19 @@ function MiniFooter() {
     <footer className="border-t border-black/10 py-10 md:py-14">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="text-sm text-black/60">© {new Date().getFullYear()} OORJAVERSE PRIVATE LIMITED. Gurgaon, India.</div>
+          <div className="text-sm text-black/60">
+            © {new Date().getFullYear()} OORJAVERSE PRIVATE LIMITED.
+          </div>
           <div className="flex items-center justify-start md:justify-end gap-4 text-sm text-black/70">
-            <a href="#" className="hover:text-black inline-flex items-center gap-1"><Globe2 className="size-4" /> Policies</a>
-            <a href="#" className="hover:text-black inline-flex items-center gap-1"><Github className="size-4" /> GitHub</a>
-            <a href="#" className="hover:text-black inline-flex items-center gap-1"><Linkedin className="size-4" /> LinkedIn</a>
+            <a href="#" className="hover:text-black inline-flex items-center gap-1">
+              <Globe2 className="size-4" /> Policies
+            </a>
+            <a href="#" className="hover:text-black inline-flex items-center gap-1">
+              <Github className="size-4" /> GitHub
+            </a>
+            <a href="#" className="hover:text-black inline-flex items-center gap-1">
+              <Linkedin className="size-4" /> LinkedIn
+            </a>
           </div>
         </div>
       </div>
