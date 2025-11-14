@@ -78,7 +78,6 @@ const Navbar = () => {
                   className="absolute bg-white text-black rounded-lg shadow-lg mt-3 w-48 z-50"
                 >
                   <li className="px-4 py-2 hover:bg-red-50 hover:text-red-600 transition"><Link to="/">Home 1</Link></li>
-                  <li className="px-4 py-2 hover:bg-red-50 hover:text-red-600 transition"><Link to="/home2">Home 2</Link></li>
                 </motion.ul>
               )}
             </AnimatePresence>
