@@ -431,7 +431,6 @@ export default function PortfolioPage() {
                 motion, no clutter—Tesla vibes for the web.
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <Button icon={Zap}>Start a Project</Button>
                 <Button variant="outline" icon={ExternalLink}>
                   See Pricing
                 </Button>
