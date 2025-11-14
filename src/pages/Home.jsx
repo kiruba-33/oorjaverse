@@ -87,7 +87,7 @@ const Home = () => {
 
           <motion.button
             whileHover={{ scale: 1.05 }}
-            onClick={() => navigate("/about")}
+            onClick={() => navigate("/contact")}
             className="mt-8 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transition-all"
           >
             Let’s Work Together
