@@ -58,6 +58,8 @@ const ServicesPreview = () => {
   const navigate = useNavigate();
   const motionPref = useReducedMotion();
 
+  
+
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto grid items-stretch gap-14 px-6 lg:grid-cols-2">
@@ -77,7 +79,13 @@ const ServicesPreview = () => {
             <motion.button
               whileHover={motionPref ? {} : hoverScale}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate("/services")}
+            onClick={() => {
+  navigate("/services");
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 200);
+}}
+
               className="shrink-0 inline-flex items-center gap-2 rounded-xl border border-gray-300/70 px-5 py-3 text-[15px] font-semibold hover:border-red-500 hover:text-red-600 transition"
             >
               <span className="-translate-y-[1px]">→</span> All Services
