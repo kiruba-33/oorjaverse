@@ -254,7 +254,6 @@ export default function ServicesPage() {
               </h1>
               <p className="text-black/70 max-w-xl">Six expert offerings — short and sharp. Expand only what you need.</p>
               <div className="flex flex-wrap items-center gap-3">
-                <MagneticButton icon={Zap}>Start a Project</MagneticButton>
                 <Button variant="outline">Get a Quote</Button>
               </div>
               <div className="flex items-center gap-6 pt-3 text-sm text-black/60">
