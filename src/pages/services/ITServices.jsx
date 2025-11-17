@@ -190,7 +190,7 @@ const Hero = () => {
             <ArrowLink>Talk to Experts</ArrowLink>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 gap-4">
             <Kpi value="8+ yrs" label="Deep Expertise" />
             <Kpi value="120+" label="Projects Delivered" />
             <Kpi value="99.9%" label="Uptime Targets" />

@@ -190,7 +190,7 @@ const Hero = () => {
               </div>
 
               {/* KPIs */}
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 gap-4">
                 <Stat value="8–12 Weeks" label="MVP Delivery" />
                 <Stat value="4.7★" label="Store Ratings" />
                 <Stat value="99.9%" label="Crash-free" />
@@ -241,7 +241,7 @@ const Hero = () => {
               <div className="grid grid-cols-3 gap-3 mt-4">
                 <img src="/Cloud/c1.jpg" className="rounded-xl border object-cover h-24" />
                 <img src="/Cloud/c2.jpg" className="rounded-xl border object-cover h-24" />
-                <img src="/Cloud/c3.jpg" className="rounded-xl border object-cover h-24" />
+                <img src="/Cloud/c3.png" className="rounded-xl border object-cover h-24" />
               </div>
             </div>
           </div>

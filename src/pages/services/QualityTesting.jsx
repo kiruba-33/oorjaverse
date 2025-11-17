@@ -264,7 +264,7 @@ export default function QualityTesting() {
             </div>
 
             {/* Stats */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl w-full">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-2 gap-4 max-w-4xl w-full">
 
               <Stat label="Reduction in Bugs Post-Release" value="-72%" />
               <Stat label="Avg. Time to Automate" value="2–4 wks" />
