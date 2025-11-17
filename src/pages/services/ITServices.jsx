@@ -169,7 +169,7 @@ const Hero = () => {
       <SoftGlow className="top-36 -right-24 w-[540px] h-[540px]" color="red" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-10 items-center">
-        <motion.div style={{ y: yTitle, opacity: fadeHero }}>
+        <motion.div  style={{ y: yTitle, opacity: fadeHero }}>
           <Badge tone="red" >OORJAVERSE PRIVATE LIMITED</Badge>
           <h1 className="mt-4 text-3xl md:text-6xl font-extrabold tracking-tight text-black">
             Enterprise-Grade <span className="text-red-600">IT Services</span> for

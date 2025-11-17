@@ -20,7 +20,7 @@ import BlogIndex, {
   CompanyUpdatesPage,
 } from "./pages/BlogCategories";
 
-import ITServices from "./pages/services/ITServices";
+const ITServices = lazy (()=> import ('./pages/services/ITServices'))
 import AppDevelopment from "./pages/services/AppDevelopment";
 import QualityTesting from "./pages/services/QualityTesting";
 const WebsiteDev = lazy(() => import("./pages/services/WebsiteDevelopment"));
