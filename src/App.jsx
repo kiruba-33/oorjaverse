@@ -7,7 +7,7 @@ import MainLayout from "./layout/MainLayout";
 const Home = lazy(() => import("./pages/Home"));
 
 import MouseFollower from "./components/MouseFollower";
-import Contact from "./pages/Contact";
+const Contact = lazy (()=> import ('./pages/Contact'))
 import LiveChat from "./components/LiveChat";
 
 import About from "./pages/About";

@@ -25,6 +25,12 @@ import Articles from "./sections/Articles";
 /* ---------------- HERO slider data ---------------- */
 const heroImages = [home1, home2, home3];
 
+/* ---------- Framer Motion Variants (FAST GPU) ---------- */
+const fadeUp = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0 },
+};
+
 const Home = () => {
   const navigate = useNavigate();
   const prefersReducedMotion = useReducedMotion();
@@ -34,45 +40,65 @@ const Home = () => {
 
   useEffect(() => {
     if (prefersReducedMotion) return;
-    timerRef.current = setInterval(
-      () => setCurrent((prev) => (prev + 1) % heroImages.length),
-      3000
-    );
-    return () => clearInterval(timerRef.current);
+
+    let lastTime = performance.now();
+
+    function loop(now) {
+      if (now - lastTime >= 3000) {
+        setCurrent((prev) => (prev + 1) % heroImages.length);
+        lastTime = now;
+      }
+      timerRef.current = requestAnimationFrame(loop);
+    }
+
+    timerRef.current = requestAnimationFrame(loop);
+
+    return () => cancelAnimationFrame(timerRef.current);
   }, [prefersReducedMotion]);
 
   return (
     <>
-      {/* ===== HERO SECTION ===== */}
-      <section className="relative w-full h-[100vh] pt-[140px] overflow-hidden">
+      {/* ========== HERO SECTION ========== */}
+      <section className="relative w-full h-[100vh] pt-[140px] overflow-hidden select-none">
         <motion.img
           key={current}
           src={heroImages[current]}
           alt="Hero Banner"
+          loading="lazy"
           initial={prefersReducedMotion ? false : { scale: 1.13 }}
           animate={prefersReducedMotion ? {} : { scale: 1 }}
-          transition={{ duration: 2.3, ease: "easeOut" }}
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          transition={{ duration: 2.0, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full object-cover z-0 transform-gpu will-change-transform"
         />
+{/* DARK SHADE OVER HERO IMAGES */}
+<div
+  className="absolute inset-0 z-[1] pointer-events-none"
+  style={{
+    background:
+      "linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.55), rgba(0,0,0,0.85))"
+  }}
+></div>
 
-        <div className="absolute inset-0 bg-black/65 z-0" />
 
         <div
-          className="absolute top-0 right-0 z-0"
+          className="absolute top-0 right-0 z-0 pointer-events-none"
           style={{
             width: "65%",
             height: "65%",
             background: "rgba(255,107,107,0.35)",
             clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+            willChange: "transform",
           }}
         />
 
+        {/* ---- HERO CONTENT ---- */}
         <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-6">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
             transition={{ duration: 0.6 }}
-            className="text-white font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl"
+            className="text-white font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl transform-gpu"
           >
             DEDICATED TEAM
             <br />
@@ -81,21 +107,27 @@ const Home = () => {
 
           <div className="w-0 h-0 border-l-[14px] border-r-[14px] border-t-[18px] border-l-transparent border-r-transparent border-t-red-500 mt-6" />
 
-          <p className="text-white text-lg sm:text-xl mt-6 opacity-90">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-white text-lg sm:text-xl mt-6 opacity-90 transform-gpu"
+          >
             Professional | Creative | Dedicated
-          </p>
+          </motion.p>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             onClick={() => navigate("/contact")}
-            className="mt-8 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transition-all"
+            className="mt-8 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transition-all transform-gpu"
           >
             Let’s Work Together
           </motion.button>
         </div>
       </section>
 
-      {/* ===== ATTACHED ALL SECTIONS BELOW ===== */}
+      {/* ========== All Sections ========== */}
       <CoreFeatures />
       <HowItWorks />
       <ServicesPreview />
