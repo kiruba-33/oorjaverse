@@ -378,7 +378,7 @@ export default function CloudServer() {
               </a>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 gap-4">
               <Stat value="99.99%" label="Uptime SLO" />
               <Stat value="< 60ms" label="Global Latency" />
               <Stat value="15 min" label="RTO Targets" />
@@ -716,7 +716,7 @@ export default function CloudServer() {
             {
               title: "Healthcare Data Lake",
               body:
-                "HIPAA-aligned pipelines, encrypted PHI at rest/in transit, and strict access boundaries.",
+                "Built with HIPAA-grade security and role-based access, scalable from small clinics to large hospital networks",
               metrics: [
                 { label: "Throughput", value: "3TB/day" },
                 { label: "Breach Events", value: "0" },
@@ -741,7 +741,7 @@ export default function CloudServer() {
               </div>
               <h3 className="mt-5 text-xl font-extrabold text-black">{c.title}</h3>
               <p className="mt-2 text-neutral-700 leading-relaxed">{c.body}</p>
-              <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 gap-4">
                 {c.metrics.map((m, j) => (
                   <div
                     key={j}

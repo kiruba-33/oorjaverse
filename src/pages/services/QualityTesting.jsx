@@ -762,7 +762,7 @@ export default function QualityTesting() {
               </div>
               <h3 className="mt-5 text-xl font-extrabold">{c.title}</h3>
               <p className="mt-2 text-neutral-700 leading-relaxed">{c.body}</p>
-              <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 gap-3">
                 {c.metrics.map((m, j) => (
                   <div
                     key={j}
