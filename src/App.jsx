@@ -1,22 +1,21 @@
 // src/App.jsx
-import React,{Suspense,lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import MainLayout from "./layout/MainLayout";
 
-const Home = lazy(()=>import('./pages/Home'));
-import Navbar from "./components/Navbar";
+const Home = lazy(() => import("./pages/Home"));
+
 import MouseFollower from "./components/MouseFollower";
 import Contact from "./pages/Contact";
 import LiveChat from "./components/LiveChat";
 
 import About from "./pages/About";
 import Search from "./pages/Search";
-const Footer = lazy(()=> import ('./pages/Footer'));
 import Service from "./pages/services/Service";
 
-
 import BlogIndex, {
- TechNewsPage,
+  TechNewsPage,
   HowToGuidesPage,
   CompanyUpdatesPage,
 } from "./pages/BlogCategories";
@@ -24,56 +23,56 @@ import BlogIndex, {
 import ITServices from "./pages/services/ITServices";
 import AppDevelopment from "./pages/services/AppDevelopment";
 import QualityTesting from "./pages/services/QualityTesting";
-const WebsiteDev = lazy(() => import('./pages/services/WebsiteDevelopment'));
+const WebsiteDev = lazy(() => import("./pages/services/WebsiteDevelopment"));
 import Hosting from "./pages/services/Hosting";
 import CloudServer from "./pages/services/CloudServer";
 import PortfolioPage from "./pages/Portfolio";
-
-
+// ❌ REMOVED duplicate MainLayout import here
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <Suspense fallback={<div aira-busy>loading...</div>}>
-      <MouseFollower />
-      <Navbar />
+    <>
+      <Suspense fallback={<div aria-busy>loading...</div>}>
+        <MouseFollower />
 
-      {/* ✅ PAGE ROUTING */}
-      <Routes>
-        <Route path="/" element={<Home />} />
+        {/* ROUTING FIXED */}
+        <Routes>
+          {/* Wrap all routes inside MainLayout */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
 
-        <Route path="/contact" element={<Contact openChatGlobal={() => setIsChatOpen(true)} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/services" element={<Service/>}/>
-        <Route path="portfolio" element={<PortfolioPage/>}/>
+            <Route
+              path="/contact"
+              element={<Contact openChatGlobal={() => setIsChatOpen(true)} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/services" element={<Service />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
 
-<Route path="/blog" element={<BlogIndex />} />
-<Route path="/blog/tech-news" element={<TechNewsPage />} />
-<Route path="/blog/how-to-guides" element={<HowToGuidesPage />} />
-<Route path="/blog/company-updates" element={<CompanyUpdatesPage />} />
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/tech-news" element={<TechNewsPage />} />
+            <Route path="/blog/how-to-guides" element={<HowToGuidesPage />} />
+            <Route path="/blog/company-updates" element={<CompanyUpdatesPage />} />
 
-          {/* ✅ Added Service Pages */}
-  <Route path="/services/it-services" element={<ITServices />} />
-  <Route path="/services/app-development" element={<AppDevelopment />} />
-  <Route path="/services/quality-testing" element={<QualityTesting />} />
-  
-<Route path="/services/website-development" element={<WebsiteDev />} />
+            {/* Service Pages */}
+            <Route path="/services/it-services" element={<ITServices />} />
+            <Route path="/services/app-development" element={<AppDevelopment />} />
+            <Route path="/services/quality-testing" element={<QualityTesting />} />
 
+            <Route path="/services/website-development" element={<WebsiteDev />} />
 
-  <Route path="/services/hosting" element={<Hosting />} />
-  <Route path="/services/cloud-server" element={<CloudServer />} />
+            <Route path="/services/hosting" element={<Hosting />} />
+            <Route path="/services/cloud-server" element={<CloudServer />} />
+          </Route>
+        </Routes>
 
-      </Routes>
-
-      
-
-      {/* ✅ Live Chat (Global) */}
-      <LiveChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
-
-      <Footer />
-        </Suspense>
+        {/* Live Chat (Global) */}
+        <LiveChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+      </Suspense>
+    </>
   );
 }
 
