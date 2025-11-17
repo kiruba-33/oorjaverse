@@ -24,6 +24,7 @@ import {
   Cloud,
   Frame,
 } from "lucide-react";
+import { useNavigate, Navigate } from "react-router-dom";
 
 /* ================= THEME ================= */
 const THEME = {
@@ -72,7 +73,6 @@ function ITButton({ children, variant = "solid", className = "", ...props }) {
         };
   return <button {...base} {...props}>{children}</button>;
 }
-
 function MagneticButton({ children, className = "", icon: Icon, ...props }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
@@ -116,6 +116,7 @@ function MagneticButton({ children, className = "", icon: Icon, ...props }) {
 }
 
 function HoverCard3D({ children, className = "" }) {
+  const navigate = useNavigate();
   const ref = useRef(null);
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
@@ -937,6 +938,7 @@ function FAQ() {
 
 /* ================= CONTACT CTA ================= */
 function ContactCTA() {
+  const navigate = useNavigate();
   return (
     <section id="contact" className="py-28">
       <div className="mx-auto max-w-5xl px-4 md:px-6 text-center">
@@ -951,7 +953,7 @@ function ContactCTA() {
           <p className="text-black/60 max-w-2xl mx-auto">
             Ready to build something powerful, fast and beautifully designed?
           </p>
-          <MagneticButton icon={Mail}>Contact Us</MagneticButton>
+          <MagneticButton onClick={()=> navigate("/contact")} icon={Mail}>Contact Us</MagneticButton>
         </motion.div>
       </div>
     </section>
