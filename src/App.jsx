@@ -1,8 +1,9 @@
 // src/App.jsx
+import React,{Suspense,lazy} from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+const Home = lazy(()=>import('./pages/Home'));
 import Navbar from "./components/Navbar";
 import MouseFollower from "./components/MouseFollower";
 import Contact from "./pages/Contact";
@@ -10,9 +11,9 @@ import LiveChat from "./components/LiveChat";
 
 import About from "./pages/About";
 import Search from "./pages/Search";
-import Footer from "./pages/Footer";
+const Footer = lazy(()=> import ('./pages/Footer'));
 import Service from "./pages/services/Service";
-import Portfolio from "./pages/Portfolio";
+
 
 import BlogIndex, {
  TechNewsPage,
@@ -23,7 +24,7 @@ import BlogIndex, {
 import ITServices from "./pages/services/ITServices";
 import AppDevelopment from "./pages/services/AppDevelopment";
 import QualityTesting from "./pages/services/QualityTesting";
-import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
+const WebsiteDev = lazy(() => import('./pages/services/WebsiteDevelopment'));
 import Hosting from "./pages/services/Hosting";
 import CloudServer from "./pages/services/CloudServer";
 import PortfolioPage from "./pages/Portfolio";
@@ -34,7 +35,7 @@ function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <>
+    <Suspense fallback={<div aira-busy>loading...</div>}>
       <MouseFollower />
       <Navbar />
 
@@ -57,7 +58,10 @@ function App() {
   <Route path="/services/it-services" element={<ITServices />} />
   <Route path="/services/app-development" element={<AppDevelopment />} />
   <Route path="/services/quality-testing" element={<QualityTesting />} />
-  <Route path="/services/website-development" element={<WebsiteDevelopment />} />
+  
+<Route path="/services/website-development" element={<WebsiteDev />} />
+
+
   <Route path="/services/hosting" element={<Hosting />} />
   <Route path="/services/cloud-server" element={<CloudServer />} />
 
@@ -69,7 +73,7 @@ function App() {
       <LiveChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
       <Footer />
-    </>
+        </Suspense>
   );
 }
 
