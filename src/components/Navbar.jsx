@@ -50,11 +50,13 @@ const Navbar = () => {
 
         {/* LOGO */}
         <Link to="/">
-          <img
-            src={logo}
-            alt="Logo"
-            className={`transition-all duration-300 ${isScrolled || !isHome ? "h-16" : "h-24"}`}
-          />
+ <img
+  src={logo}
+  alt="logo"
+  className="w-24 md:w-28 lg:w-32 object-contain"
+/>
+
+
         </Link>
 
         {/* DESKTOP MENU */}
