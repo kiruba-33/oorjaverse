@@ -31,6 +31,7 @@ import Preloader from "./components/Preloader";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import FloatingWhatsapp from "./components/FloatingWhatsapp";
 import { HelmetProvider } from "react-helmet-async"
+import Navbar from "./components/Navbar";
 
 // ❌ REMOVED duplicate MainLayout import here
 
@@ -42,6 +43,8 @@ function App() {
     <HelmetProvider>
 
       <Suspense fallback={<Preloader />}>
+      <Navbar/>
+      <AnimatedRoutes/>
         <MouseFollower />
         <ScrollToTopButton/>
         <FloatingWhatsapp/>
