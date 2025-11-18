@@ -21,6 +21,8 @@ import BusinessSolution from "./sections/BusinessSolution";
 import Testimonials from "./sections/Testimonials";
 import FAQ from "./sections/FAQ";
 import Articles from "./sections/Articles";
+import { Helmet } from "react-helmet-async";
+
 
 /* ---------------- HERO slider data ---------------- */
 const heroImages = [home1, home2, home3];
@@ -58,6 +60,17 @@ const Home = () => {
 
   return (
     <>
+    <Helmet>
+  <title>OorjaVerse – Empowering Your Potential</title>
+  <meta name="description" content="We provide digital innovation, website development and scalable IT solutions for modern businesses." />
+  <meta name="keywords" content="IT services, website development, app development, digital agency, Oorjaverse" />
+  <meta property="og:title" content="OorjaVerse – Premium IT Services" />
+  <meta property="og:description" content="Empowering businesses with high-quality digital solutions and expert engineering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:image" content="https://your-domain.com/logo.png" />
+</Helmet>
+
       {/* ========== HERO SECTION ========== */}
       <section className="relative w-full h-[100vh] pt-[140px] overflow-hidden select-none">
         <motion.img

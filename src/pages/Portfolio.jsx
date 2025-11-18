@@ -3,6 +3,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import { scrollReveal } from "../animations/scrollReveal";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -525,12 +526,18 @@ export default function PortfolioPage() {
       {/* PROCESS */}
       <section className="relative py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <div className="mb-8 text-center">
+          <motion.div 
+           variants={scrollReveal}     // 👈 added
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="mb-10 text-center"
+          >  
             <h2 className="text-3xl md:text-5xl font-semibold">A seamless process.</h2>
             <p className="mt-3 text-black/70 max-w-2xl mx-auto">
               Transparent steps with real artifacts at every stage. You're always in the loop.
             </p>
-          </div>
+          </motion.div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
               { icon: Brush, title: "Design", copy: "Wireframes → high-fidelity UI with tokenized styles and motion in mind." },

@@ -77,3 +77,15 @@
 .nav-item:hover::after {
   width: 100%;
 }
+
+/* ⚡ Services Card Hover 3D Effect */
+.service-card {
+  transition: all 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.03) rotateX(2deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+

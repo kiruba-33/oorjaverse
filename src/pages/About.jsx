@@ -1,6 +1,9 @@
 // src/pages/About.jsx
 import React, { useRef, useState, memo } from "react";
 import { motion, useReducedMotion, useSpring, useMotionValue } from "framer-motion";
+import { scrollReveal } from "../animations/scrollReveal";
+import { Helmet } from "react-helmet-async";
+
 import {
   Users,
   CheckCircle2,
@@ -113,6 +116,31 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white text-black selection:bg-black/10">
+      <Helmet>
+  <title>OorjaVerse – About Us | Our Story & Mission</title>
+  <meta 
+    name="description" 
+    content="Learn about OorjaVerse — our mission, our vision, and our dedication to delivering high-quality IT solutions and digital innovation."
+  />
+  <meta 
+    name="keywords" 
+    content="About OorjaVerse, IT company vision, digital agency, technology team, OorjaVerse mission"
+  />
+
+  {/* Social & Sharing Info */}
+  <meta property="og:title" content="OorjaVerse – Who We Are" />
+  <meta 
+    property="og:description" 
+    content="We are a passionate team building innovative digital solutions to empower businesses globally."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/about" />
+  <meta property="og:image" content="https://your-domain.com/logo.png" />
+
+  {/* SEO Indexing */}
+  <meta name="robots" content="index, follow" />
+</Helmet>
+
       <AboutHero prefersReduced={prefersReduced} />
       <CoreValues prefersReduced={prefersReduced} />
       <TeamSection prefersReduced={prefersReduced} />
@@ -126,7 +154,7 @@ export default function About() {
 /* ====== HERO ====== */
 function AboutHero({ prefersReduced }) {
   return (
-    <section className="relative pt-28 pb-16">
+    <section className="relative pt-28 pb-16 mt-10">
       <div className="mx-auto max-w-6xl px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
         <motion.div
           className="transform-gpu space-y-6"
@@ -183,7 +211,7 @@ function CoreValues({ prefersReduced }) {
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <motion.div
           className="text-center mb-10 transform-gpu"
-          variants={fadeUp}
+         variants={scrollReveal}
           initial="hidden"
           whileInView={!prefersReduced ? "show" : undefined}
           viewport={{ once: true }}

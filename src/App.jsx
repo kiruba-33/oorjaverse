@@ -27,6 +27,11 @@ const WebsiteDev = lazy(() => import("./pages/services/WebsiteDevelopment"));
 import Hosting from "./pages/services/Hosting";
 import CloudServer from "./pages/services/CloudServer";
 import PortfolioPage from "./pages/Portfolio";
+import Preloader from "./components/Preloader";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import FloatingWhatsapp from "./components/FloatingWhatsapp";
+import { HelmetProvider } from "react-helmet-async"
+
 // ❌ REMOVED duplicate MainLayout import here
 
 function App() {
@@ -34,8 +39,12 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<div aria-busy>loading...</div>}>
+    <HelmetProvider>
+
+      <Suspense fallback={<Preloader />}>
         <MouseFollower />
+        <ScrollToTopButton/>
+        <FloatingWhatsapp/>
 
         {/* ROUTING FIXED */}
         <Routes>
@@ -72,7 +81,8 @@ function App() {
         {/* Live Chat (Global) */}
         <LiveChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
       </Suspense>
-    </>
+      </HelmetProvider>
+      </>
   );
 }
 

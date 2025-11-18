@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { motion, useReducedMotion, useSpring, useMotionValue } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { scrollReveal } from "../../animations/scrollReveal";
+import { Helmet } from "react-helmet-async";
+
 import {
   Monitor,
   ShieldCheck,
@@ -185,6 +188,31 @@ export default function Service() {
 
   return (
     <div className="min-h-screen bg-white text-black selection:bg-black/10 relative overflow-x-hidden">
+      <Helmet>
+  <title>OorjaVerse – Our Premium Services</title>
+  <meta 
+    name="description" 
+    content="Professional IT services including website development, UI/UX design, cloud solutions, and business automation offered by OorjaVerse."
+  />
+  <meta 
+    name="keywords" 
+    content="IT services, web development, UI/UX design, cloud services, business solutions, Oorjaverse"
+  />
+
+  {/* Open Graph / Social Media */}
+  <meta property="og:title" content="OorjaVerse – Premium IT Services" />
+  <meta 
+    property="og:description" 
+    content="We deliver expert engineering, digital design, and scalable IT solutions tailored to your business."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/services" />
+  <meta property="og:image" content="https://your-domain.com/logo.png" />
+
+  {/* For Better SEO */}
+  <meta name="robots" content="index, follow" />
+</Helmet>
+
       {/* ===== HERO (About-style) ===== */}
       <section className="relative pt-28 pb-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
@@ -208,13 +236,7 @@ export default function Service() {
             </p>
 
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => navigate("/contact")}
-                className="inline-flex items-center gap-2 rounded-lg px-5 py-3 font-semibold bg-red-600 text-white"
-              >
-                Start a Project
-                <ArrowRight className="size-4" />
-              </button>
+             
 
               <button
                 onClick={() => window.scrollTo({ top: 800, behavior: "smooth" })}
@@ -225,18 +247,24 @@ export default function Service() {
             </div>
           </motion.div>
 
-          <motion.div
-            className="transform-gpu rounded-2xl overflow-hidden border shadow-sm"
-            variants={imageReveal}
-            initial="hidden"
-            whileInView={!prefersReduced ? "show" : undefined}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.55 }}
-          >
-            <HoverCard3D>
-              <img src="/about/hero.jpg" alt="Services hero" loading="lazy" className="w-full h-[420px] object-cover" />
-            </HoverCard3D>
-          </motion.div>
+           {/* IMAGE SECTION */}
+    <motion.div
+      className="transform-gpu rounded-2xl overflow-hidden border shadow-sm mt-6"
+      variants={imageReveal}
+      initial="hidden"
+      whileInView={!prefersReduced ? "show" : undefined}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55 }}
+    >
+      <HoverCard3D>
+        <img
+          src="/about/hero.jpg"
+          alt="Services hero"
+          loading="lazy"
+          className="w-full h-[420px] object-cover"
+        />
+      </HoverCard3D>
+    </motion.div>
         </div>
       </section>
 
@@ -244,21 +272,23 @@ export default function Service() {
       <section id="services-grid" className="py-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView={!prefersReduced ? "show" : undefined}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-center mb-10 transform-gpu"
-          >
-            Our Capabilities
-          </motion.h2>
+  variants={scrollReveal}   // 👈 added
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  className="text-3xl md:text-4xl font-bold text-center mb-10 transform-gpu"
+>
+  Our Capabilities
+</motion.h2>
+
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <motion.div
-                key={s.id}
-                className="rounded-2xl bg-white p-6 shadow-sm border hover:shadow-lg cursor-pointer transform-gpu transition"
-                style={{ borderColor: THEME.border }}
+          <motion.div
+  key={s.id}
+  className="rounded-2xl bg-white p-6 shadow-sm border hover:shadow-lg cursor-pointer transform-gpu transition service-card"
+  style={{ borderColor: THEME.border }}
+
                 variants={fadeUp}
                 initial="hidden"
                 whileInView={!prefersReduced ? "show" : undefined}
