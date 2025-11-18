@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState, useEffect } from "react";
+import React, { useMemo, useRef, useState, useEffect, useCallback} from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -39,14 +39,19 @@ const Testimonials = () => {
   const tLen = testimonialsAll.length;
   const maxStart = Math.max(0, tLen - 3);
   const prevSlide = () => setIndex((p) => (p === 0 ? maxStart : p - 1));
-  const nextSlide = () => setIndex((p) => (p >= maxStart ? 0 : p + 1));
+ const nextSlide = useCallback(() => {
+  setIndex((p) => (p === maxStart ? 0 : p + 1));
+}, [maxStart]); // 👉 only depends on maxStart
+
 
   const tAuto = useRef(null);
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-    tAuto.current = setInterval(nextSlide, 3500);
-    return () => clearInterval(tAuto.current);
-  }, [prefersReducedMotion, maxStart]);
+  
+useEffect(() => {
+  if (prefersReducedMotion) return;
+  tAuto.current = setInterval(nextSlide, 3500);
+  return () => clearInterval(tAuto.current);
+}, [prefersReducedMotion, maxStart, nextSlide]); // ✅ FIXED
+
 
   const visibleTestimonials = useMemo(() => {
     const a = testimonialsAll[(index + 0) % tLen];

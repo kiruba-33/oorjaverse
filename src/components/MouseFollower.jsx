@@ -6,12 +6,12 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "../css/Navbar.css";
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
     // 🟠 Smooth transition
-    <header className="fixed top-0 left-0 w-full z-[9999] transition-all duration-500 ease-in-out">
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
       <nav className={`flex justify-between items-center px-6 md:px-12 py-4 ${navbarStyle}`}>
 
         {/* LOGO */}
@@ -199,7 +199,7 @@ const Navbar = () => {
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
-              className="fixed top-0 left-0 h-full w-72 bg-gradient-to-b from-red-600 to-red-800 text-white z-50 shadow-xl flex flex-col"
+              className="fixed top-0 left-0 h-full w-72  custom-gradient from-red-600 to-red-800 text-white z-50 shadow-xl flex flex-col"
             >
               {/* ... */}
             </motion.div>

@@ -4,6 +4,7 @@ import React, {
   useState,
   useCallback,
   useRef,
+  useMemo,
 } from "react";
 
 // Check device is desktop
@@ -16,7 +17,9 @@ const isLowEndDevice = () => {
   try {
     if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4)
       return true;
-  } catch (e) {}
+  } catch (e) {
+    // no error
+  }
   return false;
 };
 
@@ -24,32 +27,36 @@ export default function ParticlesClient({ options = {}, className = "" }) {
   const [Particles, setParticles] = useState(null);
   const containerRef = useRef(null);
 
-  const defaultOptions = {
-    fpsLimit: 30,
-    detectRetina: false,
-    particles: {
-      number: { value: 20, density: { enable: false } },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 3 } },
-      move: { enable: true, speed: 0.4 },
-      opacity: { value: 0.7 },
-    },
-    interactivity: {},
-  };
+  // Default particle options – memoized to prevent warnings
+  const memoizedDefaultOptions = useMemo(
+    () => ({
+      fpsLimit: 30,
+      detectRetina: false,
+      particles: {
+        number: { value: 20, density: { enable: false } },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 3 } },
+        move: { enable: true, speed: 0.4 },
+        opacity: { value: 0.7 },
+      },
+      interactivity: {},
+    }),
+    [] // ⚠ depends on nothing → NO WARNING!
+  );
 
-  // run in idle time
+  // Run when browser is idle
   const runWhenIdle = useCallback((fn) => {
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(fn, { timeout: 1000 });
     } else {
       setTimeout(fn, 200);
     }
-  }, []);
+  }, []); // ⚠ depends on nothing → NO WARNING!
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!isDesktop()) return;          // DESKTOP ONLY
-    if (isLowEndDevice()) return;      // skip slow devices
+    if (!isDesktop()) return;
+    if (isLowEndDevice()) return;
     if (!containerRef.current) return;
 
     let observer;
@@ -82,7 +89,11 @@ export default function ParticlesClient({ options = {}, className = "" }) {
             await loadSlim(engine);
           };
           return (
-            <ParticlesImpl init={init} options={{ ...defaultOptions, ...options }} {...props} />
+            <ParticlesImpl
+              init={init}
+              options={{ ...memoizedDefaultOptions, ...options }}
+              {...props}
+            />
           );
         };
 
@@ -93,7 +104,7 @@ export default function ParticlesClient({ options = {}, className = "" }) {
     }
 
     return () => observer && observer.disconnect();
-  }, [options, runWhenIdle]);
+  }, [memoizedDefaultOptions, options, runWhenIdle]); // ✨ dependencies are correct
 
   return (
     <div

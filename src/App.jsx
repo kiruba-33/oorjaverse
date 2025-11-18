@@ -2,6 +2,7 @@
 import React, { Suspense, lazy } from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import MainLayout from "./layout/MainLayout";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -30,7 +31,6 @@ import PortfolioPage from "./pages/Portfolio";
 import Preloader from "./components/Preloader";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import FloatingWhatsapp from "./components/FloatingWhatsapp";
-import { HelmetProvider } from "react-helmet-async"
 import Navbar from "./components/Navbar";
 
 // ❌ REMOVED duplicate MainLayout import here
