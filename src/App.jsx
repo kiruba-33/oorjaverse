@@ -44,7 +44,6 @@ function App() {
 
       <Suspense fallback={<Preloader />}>
       <Navbar/>
-      <AnimatedRoutes/>
         <MouseFollower />
         <ScrollToTopButton/>
         <FloatingWhatsapp/>
