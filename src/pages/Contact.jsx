@@ -81,18 +81,26 @@ const Contact = ({ openChatGlobal }) => {
             </li>
 
             <li className="flex items-center space-x-3">
-              <FaPhoneAlt className="text-red-600 text-xl" />
-              <span>
-                <strong>Call Us:</strong> +91 8178106141
-              </span>
-            </li>
+  <FaPhoneAlt className="text-red-600 text-xl" />
+  <a
+    href="tel:+918726067767"
+    className="hover:text-red-600 transition"
+  >
+    <strong>Call Us:</strong> +91 872606067767
+  </a>
+</li>
+
 
             <li className="flex items-center space-x-3">
-              <FaEnvelope className="text-red-600 text-xl" />
-              <span>
-                <strong>Email:</strong> info@oorjaverse.com
-              </span>
-            </li>
+  <FaEnvelope className="text-red-600 text-xl" />
+  <a
+    href="mailto:stepstart.in@gmail.com"
+    className="hover:text-red-600 transition"
+  >
+    <strong>Email:</strong> stepstart.in@gmail.com
+  </a>
+</li>
+
           </ul>
 
           {/* Live Chat Button */}

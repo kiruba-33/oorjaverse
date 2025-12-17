@@ -798,7 +798,7 @@ const FinalCTA = () => (
               href="/contact"
               className="inline-flex items-center gap-3 rounded-xl bg-white px-6 py-3 font-bold text-black hover:bg-red-50"
             >
-              Contact OORJAVERSE <FaLongArrowAltRight />
+              Contact YOLO <FaLongArrowAltRight />
             </a>
           </div>
         </div>

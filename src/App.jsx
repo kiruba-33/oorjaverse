@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -37,6 +38,9 @@ import Navbar from "./components/Navbar";
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const location = useLocation();
+const isHome = location.pathname === "/";
+
 
   return (
     <>
@@ -49,11 +53,11 @@ function App() {
         <FloatingWhatsapp/>
 
         {/* ROUTING FIXED */}
+        <main className={isHome ? "" : "pt-[40px]"}>
         <Routes>
           {/* Wrap all routes inside MainLayout */}
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
-
             <Route
               path="/contact"
               element={<Contact openChatGlobal={() => setIsChatOpen(true)} />}
@@ -79,7 +83,7 @@ function App() {
             <Route path="/services/cloud-server" element={<CloudServer />} />
           </Route>
         </Routes>
-
+        </main>
         {/* Live Chat (Global) */}
         <LiveChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
       </Suspense>

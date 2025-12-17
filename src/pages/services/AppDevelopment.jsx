@@ -665,7 +665,7 @@ export default function AppDevelopment() {
                   href="tel:+91XXXXXXXXXX"
                   className="border border-white/40 hover:bg-white/10 px-5 py-3 rounded-xl flex items-center justify-center gap-2"
                 >
-                  <FaPhoneAlt /> +91-XXXX-XXX-XXX
+                  <FaPhoneAlt /> +91 872606067767
                 </a>
               </div>
             </div>

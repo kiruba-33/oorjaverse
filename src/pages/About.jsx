@@ -395,7 +395,7 @@ function CTAContact({ prefersReduced }) {
             </div>
             <div className="flex items-center gap-4 justify-end">
               <a href="mailto:hello@oorjaverse.dev" className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white text-black">
-                <Mail className="size-4" /> hello@oorjaverse.dev
+                <Mail className="size-4" /> stepstart.in@gmail.com
               </a>
               <a href="#" className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border">
                 <Github className="size-4" /> GitHub
