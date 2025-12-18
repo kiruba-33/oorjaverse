@@ -87,7 +87,7 @@ useEffect(() => {
             >
               <div className="mx-auto relative w-24 h-24 mb-6">
                 <div className="absolute inset-0 bg-[#f5e6c8] rounded-full scale-[1.8] -z-10" />
-                <img src={client.img} alt={client.name} className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md" />
+                <img src={client.img} loading="lazy" alt={client.name} className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md" />
               </div>
               <div className="text-red-500 text-xl mb-3">★★★★★</div>
               <h3 className="text-xl font-bold text-gray-900">{client.name}</h3>

@@ -125,6 +125,7 @@ const ServicesPreview = () => {
         <Reveal className="relative w-full self-stretch rounded-3xl overflow-hidden">
           <img
             src={serviceImg}
+            loading="lazy"
             alt="Consulting"
             className="absolute inset-0 h-full w-full object-cover"
           />

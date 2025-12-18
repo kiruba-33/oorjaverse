@@ -452,7 +452,7 @@ export default function Service() {
                   <ArrowRight className="size-4" /> Contact us
                 </button>
                 <a href="mailto:hello@oorjaverse.dev" className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border">
-                  <Github className="size-4" /> hello@oorjaverse.dev
+                  <Github className="size-4" /> 
                 </a>
               </div>
             </div>

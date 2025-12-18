@@ -36,6 +36,7 @@ const FAQ = () => {
         <Reveal className="flex justify-center">
           <img
             src={gqImg}
+            loading="lazy"
             alt="General Questions"
             className="w-[90%] max-w-[520px] rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.2)]"
           />

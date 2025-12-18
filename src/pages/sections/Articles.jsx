@@ -38,7 +38,7 @@ const Articles = () => {
           <Reveal key={i}>
             <div className="group cursor-pointer rounded-2xl overflow-hidden bg-white border shadow-lg hover:shadow-[0_20px_60px_rgba(255,0,80,0.18)] hover:-translate-y-2 transition">
               <div className="relative h-[340px] overflow-hidden">
-                <img src={post.img} alt="blog" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={post.img} loading="lazy" alt="blog" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <button
                   onClick={() => navigate("/blog-details")}
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"

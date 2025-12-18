@@ -62,6 +62,7 @@ const PortfolioShowcase = () => {
             <div className="relative group rounded-2xl overflow-hidden cursor-pointer bg-white shadow-lg hover:shadow-2xl transition">
               <img
                 src={item.img}
+                loading="lazy"
                 className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 alt={item.title}
               />
