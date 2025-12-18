@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import gqImg from "../../assets/gq.png";
+import gqImg from "../../assets/gq.webp";
 
 const Reveal = ({ delay = 0, children, className = "" }) => {
   const prefersReducedMotion = useReducedMotion();

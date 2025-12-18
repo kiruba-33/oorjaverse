@@ -111,8 +111,8 @@ const Footer = () => {
           <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
 
           {[
-            { id: 1, src: "/portfolIoimages/portimg1.jpg" },
-            { id: 2, src: "/portfolIoimages/portimg2.jpg" },
+            { id: 1, src: "/portfolIoimages/portimg1.webp" },
+            { id: 2, src: "/portfolIoimages/portimg2.webp" },
           ].map((post) => (
             <div
               key={post.id}

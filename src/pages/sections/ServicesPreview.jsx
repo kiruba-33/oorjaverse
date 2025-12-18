@@ -2,7 +2,7 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import serviceImg from "../../assets/service.png";
+import serviceImg from "../../assets/service.webp";
 import {
   HiOutlineDevicePhoneMobile,
   HiOutlineCodeBracketSquare,

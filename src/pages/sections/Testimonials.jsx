@@ -2,12 +2,12 @@ import React, { useMemo, useRef, useState, useEffect, useCallback} from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import client1 from "../../assets/testimonials/client1.png";
-import client2 from "../../assets/testimonials/client2.png";
-import client3 from "../../assets/testimonials/client3.png";
-import client4 from "../../assets/testimonials/client4.png";
-import client5 from "../../assets/testimonials/client5.png";
-import client6 from "../../assets/testimonials/client6.png";
+import client1 from "../../assets/testimonials/client1.webp";
+import client2 from "../../assets/testimonials/client2.webp";
+import client3 from "../../assets/testimonials/client3.webp";
+import client4 from "../../assets/testimonials/client4.webp";
+import client5 from "../../assets/testimonials/client5.webp";
+import client6 from "../../assets/testimonials/client6.webp";
 
 const Reveal = ({ delay = 0, children, className = "" }) => {
   const prefersReducedMotion = useReducedMotion();

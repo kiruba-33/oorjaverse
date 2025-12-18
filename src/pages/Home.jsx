@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import home1 from "../assets/home1.png";
-import home2 from "../assets/home2.png";
-import home3 from "../assets/home3.png";
+import home1 from "../assets/home1.webp";
+import home2 from "../assets/home2.webp";
+import home3 from "../assets/home3.webp";
 
 import "../css/Home.css";
 
