@@ -21,9 +21,9 @@ const Articles = () => {
   const navigate = useNavigate();
 
   const posts = [
-    { img: "/src/assets/articles/article1.webp", title: "Blessed created place beast give fill market beast day." },
-    { img: "/src/assets/articles/article2.webp", title: "Divided open created green fight open together seen." },
-    { img: "/src/assets/articles/article3.webp", title: "Gathered grass bearing brought land main pure waters." },
+    { img: "/articels/article1.webp", title: "Blessed created place beast give fill market beast day." },
+    { img: "/articels/article2.webp", title: "Divided open created green fight open together seen." },
+    { img: "/articels/article3.webp", title: "Gathered grass bearing brought land main pure waters." },
   ];
 
   return (
