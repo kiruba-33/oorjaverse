@@ -49,7 +49,7 @@ const BusinessSolution = () => {
 
         <Reveal className="flex justify-center items-center h-full">
           <img
-            src="/src/assets/core.webp"
+            src="/core/core.webp"
             alt="Business Expert"
             className="h-full w-auto max-h-[600px] object-cover drop-shadow-[0_20px_45px_rgba(0,0,0,0.28)] transition-transform duration-500 ease-out hover:scale-105"
             style={{ willChange: "transform" }}

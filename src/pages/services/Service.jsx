@@ -189,7 +189,7 @@ export default function Service() {
   return (
     <div className="min-h-screen bg-white text-black selection:bg-black/10 relative overflow-x-hidden">
       <Helmet>
-  <title>OorjaVerse – Our Premium Services</title>
+  <title>Yolo – Our Premium Services</title>
   <meta 
     name="description" 
     content="Professional IT services including website development, UI/UX design, cloud solutions, and business automation offered by OorjaVerse."
