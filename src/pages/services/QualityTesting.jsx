@@ -280,7 +280,7 @@ export default function QualityTesting() {
     <img
       src="/QualityTestingimages/QT4.jpg"
       alt="QA dashboards and monitors"
-      className="w-full h-[320px] md:h-[420px] object-cover"
+      className="w-full h-80 md:h-[420px] object-cover"
       loading="eager"
       decoding="async"
     />
